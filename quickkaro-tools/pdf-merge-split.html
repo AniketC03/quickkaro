@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PDF Merge and Split Tool - Free Browser PDF Utility</title>
+  <meta name="description" content="Merge multiple PDF files or split selected PDF pages online using a free client-side browser tool. No subscription needed.">
+  <link rel="canonical" href="pdf-merge-split.html">
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <header class="topbar"><a class="brand" href="index.html"><span class="brand-mark">QK</span><span><strong>QuickKaro Tools</strong><small>Free tools for students, job seekers and creators</small></span></a><nav class="nav"><a href="image-compressor-under-100kb.html">Image</a><a href="pdf-merge-split.html">PDF</a><a href="free-resume-builder-for-freshers.html">Resume</a><a href="invoice-generator.html">Invoice</a><a href="youtube-title-generator.html">Creator</a></nav></header>
+  <main class="page-shell">
+    <section class="tool-page">
+      <div class="seo-panel">
+        <p class="eyebrow">Free PDF tool</p>
+        <h1>PDF Merge and Split Tool</h1>
+        <p>Merge PDFs into one file or export selected pages from a PDF. This page uses a free client-side PDF library, so it is designed for a no-subscription tools website.</p>
+        <div class="ad-slot">AdSense slot after approval</div>
+        <h2>Page range examples</h2><p>Use 1-3 to export pages 1 through 3, or 1-3,5 to include page 5 too.</p>
+        <h2>FAQ</h2><h3>Do I need an account?</h3><p>No. The tool is designed to run directly in the browser.</p><h3>Why does the tool say the library is loading?</h3><p>The PDF library loads from a CDN. For production, you can host the library file locally.</p>
+      </div>
+      <article class="tool-card" id="pdf-tools">
+        <div class="tool-head"><span class="tool-icon">PDF</span><div><h2>PDF Merge / Split</h2><p>Merge PDFs or export selected pages using a free client-side library.</p></div></div>
+        <label class="field">PDF files<input id="pdfInput" type="file" accept="application/pdf" multiple></label>
+        <div class="split"><label class="field">Page range<input id="pdfRange" type="text" placeholder="1-3,5"></label><label class="field">Action<select id="pdfAction"><option value="merge">Merge files</option><option value="split">Export range</option></select></label></div>
+        <button class="btn primary" id="pdfBtn">Create PDF</button>
+        <div class="result" id="pdfResult">PDF tools use a free browser library. If your browser blocks CDN scripts, upload the library locally before launch.</div>
+      </article>
+    </section>
+  </main>
+  <footer class="footer"><strong>QuickKaro Tools</strong><span><a href="index.html">All tools</a></span></footer>
+</body>
+</html>

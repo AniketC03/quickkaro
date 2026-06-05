@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>QuickKaro Tools - Free Student, Job and Creator Utilities</title>
+  <meta name="description" content="Free browser tools for Indian students, job seekers and creators: image compressor, PDF tools, resume builder, invoice generator, QR codes, captions, calculators and more.">
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/qrcode@1.5.4/build/qrcode.min.js"></script>
+  <script defer src="app.js"></script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "QuickKaro Tools",
+      "description": "Free browser tools for students, job seekers and creators.",
+      "url": "https://example.com/",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://example.com/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+  </script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="index.html" aria-label="QuickKaro Tools home">
+      <span class="brand-mark">QK</span>
+      <span>
+        <strong>QuickKaro Tools</strong>
+        <small>Free tools for students, job seekers and creators</small>
+      </span>
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <a href="image-compressor-under-100kb.html">Image</a>
+      <a href="pdf-merge-split.html">PDF</a>
+      <a href="free-resume-builder-for-freshers.html">Resume</a>
+      <a href="invoice-generator.html">Invoice</a>
+      <a href="youtube-title-generator.html">Creator</a>
+    </nav>
+  </header>
+
+  <main id="home">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">No login. No subscription. Runs in your browser.</p>
+        <h1>Free everyday tools built for search traffic.</h1>
+        <p>Compress files, build documents, calculate quick numbers and create content helpers from one fast website.</p>
+        <div class="hero-actions">
+          <a class="btn primary" href="image-compressor-under-100kb.html">Start with images</a>
+          <a class="btn ghost" href="free-resume-builder-for-freshers.html">Build resume</a>
+        </div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="dash-tile wide"><span>100 KB</span><strong>Image target</strong></div>
+        <div class="dash-tile"><span>PDF</span><strong>Merge</strong></div>
+        <div class="dash-tile"><span>ATS</span><strong>Resume</strong></div>
+        <div class="dash-tile"><span>GST</span><strong>Invoice</strong></div>
+        <div class="dash-tile wide accent"><span>SEO</span><strong>Creator titles</strong></div>
+      </div>
+    </section>
+
+    <section class="page-shell" aria-label="Popular free tools">
+      <div class="seo-panel">
+        <p class="eyebrow">Popular searches</p>
+        <h2>Free tools made as separate SEO pages</h2>
+        <p>Each main utility has its own keyword-focused page, so the website can target searches like image compressor under 100KB, free resume builder for freshers, invoice generator and YouTube title generator.</p>
+        <div class="directory-grid">
+          <a class="directory-card" href="image-compressor-under-100kb.html"><strong>Image Compressor Under 100KB</strong><span>Resize JPG, PNG and WebP images for forms, jobs and uploads.</span></a>
+          <a class="directory-card" href="free-resume-builder-for-freshers.html"><strong>Free Resume Builder for Freshers</strong><span>Create a clean resume and print or save it as PDF.</span></a>
+          <a class="directory-card" href="invoice-generator.html"><strong>Free Invoice Generator</strong><span>Make printable invoices with tax, currency and item totals.</span></a>
+          <a class="directory-card" href="pdf-merge-split.html"><strong>PDF Merge and Split Tool</strong><span>Combine PDFs or export selected pages in the browser.</span></a>
+          <a class="directory-card" href="youtube-title-generator.html"><strong>YouTube Title Generator</strong><span>Generate video titles, descriptions and tags for creators.</span></a>
+          <a class="directory-card" href="qr-code-generator.html"><strong>QR Code Generator</strong><span>Create QR codes for links, UPI text and contact details.</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="tool-grid" aria-label="Tools">
+      <article class="tool-card" id="image-compressor">
+        <div class="tool-head">
+          <span class="tool-icon">IMG</span>
+          <div>
+            <h2>Image Compressor</h2>
+            <p>Resize and compress JPG/PNG/WebP files under a target size.</p>
+          </div>
+        </div>
+        <label class="field">Image file
+          <input id="imageInput" type="file" accept="image/*">
+        </label>
+        <div class="split">
+          <label class="field">Target size
+            <select id="imageTarget">
+              <option value="50">50 KB</option>
+              <option value="100" selected>100 KB</option>
+              <option value="200">200 KB</option>
+              <option value="500">500 KB</option>
+            </select>
+          </label>
+          <label class="field">Max width
+            <input id="imageWidth" type="number" min="320" max="4000" step="10" value="1280">
+          </label>
+        </div>
+        <button class="btn primary" id="compressImageBtn">Compress image</button>
+        <div class="result" id="imageResult">Choose an image to begin.</div>
+      </article>
+
+      <article class="tool-card" id="pdf-tools">
+        <div class="tool-head">
+          <span class="tool-icon">PDF</span>
+          <div>
+            <h2>PDF Merge / Split</h2>
+            <p>Merge PDFs or export selected pages using a free client-side library.</p>
+          </div>
+        </div>
+        <label class="field">PDF files
+          <input id="pdfInput" type="file" accept="application/pdf" multiple>
+        </label>
+        <div class="split">
+          <label class="field">Page range
+            <input id="pdfRange" type="text" placeholder="1-3,5">
+          </label>
+          <label class="field">Action
+            <select id="pdfAction">
+              <option value="merge">Merge files</option>
+              <option value="split">Export range</option>
+            </select>
+          </label>
+        </div>
+        <button class="btn primary" id="pdfBtn">Create PDF</button>
+        <div class="result" id="pdfResult">PDF tools use a free browser library. If your browser blocks CDN scripts, upload the library locally before launch.</div>
+      </article>
+
+      <article class="tool-card" id="resume-builder">
+        <div class="tool-head">
+          <span class="tool-icon">CV</span>
+          <div>
+            <h2>Resume Builder</h2>
+            <p>Generate a clean fresher-friendly resume as printable HTML.</p>
+          </div>
+        </div>
+        <label class="field">Full name
+          <input id="resumeName" type="text" placeholder="Aarav Sharma">
+        </label>
+        <div class="split">
+          <label class="field">Role
+            <input id="resumeRole" type="text" placeholder="Frontend Developer">
+          </label>
+          <label class="field">Contact
+            <input id="resumeContact" type="text" placeholder="email | phone | city">
+          </label>
+        </div>
+        <label class="field">Skills
+          <textarea id="resumeSkills" rows="3" placeholder="HTML, CSS, JavaScript, React, Git"></textarea>
+        </label>
+        <label class="field">Education / Projects / Experience
+          <textarea id="resumeBody" rows="5" placeholder="BCA, XYZ College&#10;Portfolio website - built responsive pages&#10;Internship - improved page speed"></textarea>
+        </label>
+        <button class="btn primary" id="resumeBtn">Generate resume</button>
+        <div class="result preview" id="resumeResult">Your resume preview appears here.</div>
+      </article>
+
+      <article class="tool-card" id="invoice-generator">
+        <div class="tool-head">
+          <span class="tool-icon">INV</span>
+          <div>
+            <h2>Invoice Generator</h2>
+            <p>Create a printable invoice with tax, totals and client details.</p>
+          </div>
+        </div>
+        <div class="split">
+          <label class="field">Business
+            <input id="bizName" type="text" placeholder="Your Business">
+          </label>
+          <label class="field">Client
+            <input id="clientName" type="text" placeholder="Client Name">
+          </label>
+        </div>
+        <label class="field">Items
+          <textarea id="invoiceItems" rows="4" placeholder="Logo design, 1, 2500&#10;Website banner, 2, 900"></textarea>
+        </label>
+        <div class="split three">
+          <label class="field">Tax %
+            <input id="taxRate" type="number" min="0" max="50" value="18">
+          </label>
+          <label class="field">Currency
+            <select id="currency">
+              <option value="Rs.">Rs.</option>
+              <option value="$">$</option>
+              <option value="EUR">EUR</option>
+            </select>
+          </label>
+          <label class="field">Invoice #
+            <input id="invoiceNo" type="text" value="QK-001">
+          </label>
+        </div>
+        <button class="btn primary" id="invoiceBtn">Generate invoice</button>
+        <div class="result preview" id="invoiceResult">Invoice preview appears here.</div>
+      </article>
+
+      <article class="tool-card" id="creator-tools">
+        <div class="tool-head">
+          <span class="tool-icon">YT</span>
+          <div>
+            <h2>YouTube Title Generator</h2>
+            <p>Create title, description and tag ideas for videos.</p>
+          </div>
+        </div>
+        <label class="field">Video topic
+          <input id="videoTopic" type="text" placeholder="Best budget phones under 15000">
+        </label>
+        <label class="field">Audience
+          <input id="videoAudience" type="text" placeholder="Indian students">
+        </label>
+        <button class="btn primary" id="youtubeBtn">Generate ideas</button>
+        <div class="result" id="youtubeResult">Enter a topic to create ideas.</div>
+      </article>
+
+      <article class="tool-card">
+        <div class="tool-head">
+          <span class="tool-icon">CAP</span>
+          <div>
+            <h2>Caption & Hashtag Generator</h2>
+            <p>Write social captions with useful hashtag sets.</p>
+          </div>
+        </div>
+        <label class="field">Post topic
+          <input id="captionTopic" type="text" placeholder="First day at new job">
+        </label>
+        <label class="field">Tone
+          <select id="captionTone">
+            <option>Friendly</option>
+            <option>Professional</option>
+            <option>Funny</option>
+            <option>Motivational</option>
+          </select>
+        </label>
+        <button class="btn primary" id="captionBtn">Create captions</button>
+        <div class="result" id="captionResult">Captions appear here.</div>
+      </article>
+
+      <article class="tool-card">
+        <div class="tool-head">
+          <span class="tool-icon">CAL</span>
+          <div>
+            <h2>GPA / Percentage Calculator</h2>
+            <p>Convert marks and calculate average percentage quickly.</p>
+          </div>
+        </div>
+        <label class="field">Marks
+          <textarea id="marksInput" rows="4" placeholder="78/100&#10;85/100&#10;9.2 CGPA"></textarea>
+        </label>
+        <button class="btn primary" id="marksBtn">Calculate</button>
+        <div class="result" id="marksResult">Add marks to calculate.</div>
+      </article>
+
+      <article class="tool-card">
+        <div class="tool-head">
+          <span class="tool-icon">ABC</span>
+          <div>
+            <h2>Word Counter</h2>
+            <p>Count words, characters, sentences and estimated reading time.</p>
+          </div>
+        </div>
+        <label class="field">Text
+          <textarea id="wordInput" rows="7" placeholder="Paste your text here"></textarea>
+        </label>
+        <div class="result metrics" id="wordResult">
+          <span><strong>0</strong> words</span><span><strong>0</strong> characters</span><span><strong>0</strong> sentences</span>
+        </div>
+      </article>
+
+      <article class="tool-card">
+        <div class="tool-head">
+          <span class="tool-icon">AGE</span>
+          <div>
+            <h2>Age Calculator</h2>
+            <p>Calculate exact age from date of birth.</p>
+          </div>
+        </div>
+        <label class="field">Date of birth
+          <input id="dobInput" type="date">
+        </label>
+        <button class="btn primary" id="ageBtn">Calculate age</button>
+        <div class="result" id="ageResult">Select a birth date.</div>
+      </article>
+
+      <article class="tool-card">
+        <div class="tool-head">
+          <span class="tool-icon">QR</span>
+          <div>
+            <h2>QR Code Generator</h2>
+            <p>Create QR codes for links, UPI IDs, phone numbers or text using a free client-side library.</p>
+          </div>
+        </div>
+        <label class="field">QR text
+          <input id="qrText" type="text" placeholder="https://example.com">
+        </label>
+        <button class="btn primary" id="qrBtn">Generate QR</button>
+        <div class="result qr-wrap"><canvas id="qrCanvas" width="180" height="180"></canvas><span id="qrResult">QR appears here.</span></div>
+      </article>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <strong>QuickKaro Tools</strong>
+    <span>Free browser utilities. Add AdSense blocks after approval, ideally between tool sections.</span>
+  </footer>
+</body>
+</html>
